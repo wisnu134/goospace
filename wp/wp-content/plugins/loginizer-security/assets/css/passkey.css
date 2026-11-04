@@ -1,0 +1,29 @@
+.loginizer_passkey_btn_con{
+display: flex;
+gap: 5px;
+}
+.loginizer_passkey_table{
+border-collapse: collapse;
+font-size: medium;
+padding: 10px;
+border: 1px solid #c2c2c2;
+}
+.loginizer_passkey_table tr{
+border-bottom: 1px solid #c2c2c2;
+}
+.loginizer_passkey_table th, td{
+padding: 5px;
+}
+.loginizer-passkey-name{
+display: flex;
+gap: 5px;
+}
+.loginizer_passkey_table_blur{
+filter: blur(2px);
+}
+.loginizer_passkey_authenticator{
+display: flex;
+align-items: center;
+gap: 2px;
+}
+/* END login form styling*/

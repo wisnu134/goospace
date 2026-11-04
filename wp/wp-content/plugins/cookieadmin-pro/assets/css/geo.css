@@ -1,0 +1,420 @@
+/* Geo Targeting — Minimal additions to existing CookieAdmin UI */
+
+/* ====== Presets Section ====== */
+.cookieadmin-geo-presets {
+    margin-bottom: 16px;
+}
+
+.cookieadmin-geo-presets-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cookieadmin-text-muted);
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    margin: 0 0 12px;
+}
+
+.cookieadmin-geo-presets-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cookieadmin-geo-preset-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px 20px;
+    min-width: 160px;
+    background: var(--cookieadmin-surface);
+    border: 1px solid var(--cookieadmin-border);
+    border-radius: var(--cookieadmin-radius);
+    cursor: pointer;
+    transition: all .2s ease;
+    text-align: center;
+}
+
+.cookieadmin-geo-preset-btn:hover {
+    border-color: var(--cookieadmin-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    transform: translateY(-1px);
+}
+
+.cookieadmin-geo-preset-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.cookieadmin-geo-preset-gdpr .cookieadmin-geo-preset-icon {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.cookieadmin-geo-preset-us .cookieadmin-geo-preset-icon {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.cookieadmin-geo-preset-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cookieadmin-text);
+}
+
+.cookieadmin-geo-preset-desc {
+    font-size: 11px;
+    color: var(--cookieadmin-text-muted);
+}
+
+.cookieadmin-geo-preset-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cookieadmin-primary);
+    background: var(--cookieadmin-primary-light);
+    border-radius: 99px;
+    transition: all .15s ease;
+}
+
+.cookieadmin-geo-preset-btn:hover .cookieadmin-geo-preset-add {
+    background: var(--cookieadmin-primary);
+    color: #fff;
+}
+
+.cookieadmin_modal-title.cookieadmin-geo-modal-title{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.cookieadmin_modal-container.cookieadmin-geo-modal{
+    overflow: auto;
+    max-height: 100%;
+}
+
+/* ====== Country Tags (inside card body) ====== */
+.cookieadmin-geo-country-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 8px;
+}
+
+.cookieadmin-geo-country-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    background: var(--cookieadmin-primary-light);
+    border: 1px solid var(--cookieadmin-border);
+    border-radius: 99px;
+    font-size: 12px;
+    color: var(--cookieadmin-text);
+}
+
+.cookieadmin-geo-country-tag-code {
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--cookieadmin-primary);
+    background: var(--cookieadmin-surface);
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid var(--cookieadmin-border);
+}
+
+.cookieadmin-geo-country-tag-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--cookieadmin-text-muted);
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 2px;
+    transition: all .15s ease;
+}
+
+.cookieadmin-geo-country-tag-remove:hover {
+    background: var(--cookieadmin-danger-bg);
+    color: var(--cookieadmin-danger);
+}
+
+/* ====== Three-State Toggle ====== */
+.cookieadmin-geo-toggle {
+    display: inline-flex;
+    border: 1px solid var(--cookieadmin-border);
+    border-radius: var(--cookieadmin-radius);
+    overflow: hidden;
+    background: var(--cookieadmin-surface);
+}
+
+.cookieadmin-geo-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    color: var(--cookieadmin-text-muted);
+    cursor: pointer;
+    transition: all .15s ease;
+    white-space: nowrap;
+    min-width: 48px;
+}
+
+.cookieadmin-geo-toggle-btn:hover:not(.cookieadmin-geo-toggle-active) {
+    background: var(--cookieadmin-surface-secondary);
+    color: var(--cookieadmin-text);
+}
+
+.cookieadmin-geo-toggle-btn.cookieadmin-geo-toggle-active {
+    color: #ffffff;
+}
+
+.cookieadmin-geo-toggle-btn.cookieadmin-geo-toggle-active.cookieadmin-geo-toggle-inherit {
+    background: var(--cookieadmin-text-muted);
+}
+
+.cookieadmin-geo-toggle-btn.cookieadmin-geo-toggle-active.cookieadmin-geo-toggle-on {
+    background: var(--cookieadmin-success);
+}
+
+.cookieadmin-geo-toggle-btn.cookieadmin-geo-toggle-active.cookieadmin-geo-toggle-off {
+    background: var(--cookieadmin-danger);
+}
+
+/* ====== Table Actions ====== */
+.cookieadmin-geo-table-edit:hover {
+    color: var(--cookieadmin-info);
+    background: var(--cookieadmin-info-bg);
+}
+
+.cookieadmin-geo-table-delete:hover {
+    color: var(--cookieadmin-danger);
+    background: var(--cookieadmin-danger-bg);
+}
+
+/* ====== Action Bar ====== */
+.cookieadmin-geo-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+/* ====== Empty State ====== */
+.cookieadmin-geo-empty {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--cookieadmin-text-muted);
+    font-size: 14px;
+    background: var(--cookieadmin-surface);
+    border: 1px dashed var(--cookieadmin-border);
+    border-radius: var(--cookieadmin-radius-sm);
+    margin-bottom: 16px;
+}
+
+.cookieadmin-geo-empty-icon {
+    font-size: 40px;
+    color: var(--cookieadmin-text-soft);
+    margin-bottom: 16px;
+}
+
+/* ====== Admin Notice ====== */
+.cookieadmin-geo-notice {
+    padding: 12px 16px;
+    border-radius: var(--cookieadmin-radius);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.cookieadmin-geo-notice.cookieadmin-geo-notice-success {
+    display: flex;
+    background: var(--cookieadmin-success-bg);
+    color: var(--cookieadmin-success);
+    border: 1px solid var(--cookieadmin-success-border);
+}
+
+.cookieadmin-geo-notice.cookieadmin-geo-notice-error {
+    display: flex;
+    background: var(--cookieadmin-danger-bg);
+    color: var(--cookieadmin-danger);
+    border: 1px solid var(--cookieadmin-danger-border);
+}
+
+/* ====== Enable Toggle Section ====== */
+.cookieadmin-geo-enable-section-con{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.cookieadmin-geo-notice.cookieadmin-geo-notice-warning {
+    display: flex;
+    background: var(--cookieadmin-info-bg);
+    color: var(--cookieadmin-info);
+    border: 1px solid var(--cookieadmin-info);
+}
+
+.cookieadmin-geo-enable-section-con > * {
+    flex: 1;
+    min-width: 0;
+}
+
+.cookieadmin-geo-enable-section {
+    background: var(--cookieadmin-surface);
+    border: 1px solid var(--cookieadmin-border);
+    border-radius: var(--cookieadmin-radius-sm);
+    padding: 20px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.cookieadmin-geo-enable-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cookieadmin-text);
+    margin: 0;
+}
+
+.cookieadmin-geo-enable-desc {
+    font-size: 13px;
+    color: var(--cookieadmin-text-muted);
+    margin: 4px 0 0;
+    line-height: 1.5;
+}
+
+.cookieadmin-geo-db-download-time, .cookieadmin-geo-no-db{
+    font-weight: 600;
+    font-size: medium;
+}
+
+/* ====== Shortcut Buttons ====== */
+.cookieadmin-geo-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.cookieadmin-geo-shortcuts-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cookieadmin-text-muted);
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    margin-right: 4px;
+}
+
+.cookieadmin-geo-shortcut-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cookieadmin-primary);
+    background: var(--cookieadmin-primary-light);
+    border: 1px solid var(--cookieadmin-border);
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all .15s ease;
+    white-space: nowrap;
+}
+
+.cookieadmin-geo-shortcut-btn:hover {
+    background: var(--cookieadmin-primary);
+    color: #ffffff;
+    border-color: var(--cookieadmin-primary);
+}
+
+.cookieadmin-geo-shortcut-worldwide {
+    background: var(--cookieadmin-surface-secondary);
+    color: var(--cookieadmin-text);
+}
+
+.cookieadmin-geo-shortcut-worldwide:hover {
+    background: var(--cookieadmin-primary);
+    color: #ffffff;
+}
+
+/* ====== Shortcut Tags ====== */
+.cookieadmin-geo-shortcut-tag {
+    background: var(--cookieadmin-primary-light);
+    border-color: var(--cookieadmin-primary);
+}
+
+.cookieadmin-geo-shortcut-tag .cookieadmin-geo-country-tag-code {
+    background: var(--cookieadmin-primary);
+    color: #ffffff;
+    border-color: var(--cookieadmin-primary);
+}
+
+/* ====== Geo Page Fixes ====== */
+.cookieadmin-geo-page .cookieadmin-setting-contents.cookieadmin-vertical {
+    align-items: flex-start;
+}
+
+.cookieadmin-geo-page .cookieadmin-grid-2 {
+    justify-items: start;
+}
+
+.cookieadmin_geo_countries input{
+	width: unset;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 860px) {
+    .cookieadmin-geo-presets-grid {
+        flex-direction: column;
+    }
+    
+    .cookieadmin-geo-preset-btn {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+        text-align: left;
+    }
+    
+    .cookieadmin-geo-preset-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .cookieadmin-geo-preset-add {
+        margin-top: 0;
+        margin-left: auto;
+    }
+}
